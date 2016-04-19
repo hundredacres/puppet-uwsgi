@@ -8,6 +8,13 @@ class uwsgi::config {
     owner   => root,
     group   => root,
     mode    => '0644',
-    content => template('uwsgi/uwsgi.ini.erb'),
+    content => $uwsgi::config_template,
+    source  => $uwsgi::config_source,
+  }
+  file { '/var/log/uwsgi.log':
+    ensure => present,
+    owner  => root,
+    group  => root,
+    mode   => '0644',
   }
 }

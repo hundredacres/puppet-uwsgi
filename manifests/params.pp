@@ -4,6 +4,9 @@
 # It sets variables according to platform.
 #
 class uwsgi::params {
+  $config_source = undef
+  $config_template = 'uwsgi/uwsgi.ini.erb'
+
   case $::osfamily {
     'Debian': {
       $package_name = 'uwsgi'
