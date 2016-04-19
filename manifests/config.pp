@@ -5,8 +5,8 @@
 class uwsgi::config {
   file { '/etc/uwsgi.ini':
     ensure  => present,
-    owner   => uwsgi,
-    group   => uwsgi,
+    owner   => root,
+    group   => root,
     mode    => '0644',
     content => template('uwsgi/uwsgi.ini.erb'),
   }
