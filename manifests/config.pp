@@ -11,10 +11,26 @@ class uwsgi::config {
     content => $uwsgi::manage_file_content,
     source  => $uwsgi::manage_file_source,
   }
+  file { '/etc/sysconfig/uwsgi':
+    ensure  => present,
+    owner   => root,
+    group   => root,
+    mode    => '0644',
+    content => $uwsgi::manage_ini_content,
+    source  => $uwsgi::manage_ini_source,
+  }
+  file { '/etc/init.d/uwsgi':
+    ensure  => present,
+    owner   => root,
+    group   => root,
+    mode    => '0755',
+    content => $uwsgi::manage_init_content,
+    source  => $uwsgi::manage_init_source,
+  }
   file { '/var/log/uwsgi.log':
     ensure => present,
     owner  => root,
     group  => root,
-    mode   => '0644',
+    mode   => '0666',
   }
 }

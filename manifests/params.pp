@@ -6,6 +6,10 @@
 class uwsgi::params {
   $config_source = undef
   $config_template = 'uwsgi/uwsgi.ini.erb'
+  $ini_source = undef
+  $ini_template = 'uwsgi/uwsgi.sysconfig.erb'
+  $init_source = undef
+  $init_template = 'uwsgi/uwsgi.initd.erb'
 
   case $::osfamily {
     'Debian': {
