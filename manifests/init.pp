@@ -18,6 +18,15 @@ class uwsgi (
 ) inherits ::uwsgi::params {
 
   # validate parameters here
+  $manage_file_source = $uwsgi::config_source ? {
+    ''        => undef,
+    default   => $uwsgi::config_source,
+  }
+
+  $manage_file_content = $uwsgi::config_template ? {
+    ''        => undef,
+    default   => template($uwsgi::config_template),
+  }
 
   class { '::uwsgi::install': } ->
   class { '::uwsgi::config': } ~>

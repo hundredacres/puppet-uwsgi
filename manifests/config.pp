@@ -8,8 +8,8 @@ class uwsgi::config {
     owner   => root,
     group   => root,
     mode    => '0644',
-    content => $uwsgi::config_template,
-    source  => $uwsgi::config_source,
+    content => $uwsgi::manage_file_content,
+    source  => $uwsgi::manage_file_source,
   }
   file { '/var/log/uwsgi.log':
     ensure => present,
