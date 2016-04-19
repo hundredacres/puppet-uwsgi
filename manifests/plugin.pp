@@ -6,7 +6,7 @@ define uwsgi::plugin(
   $ensure = 'present',
 ) {
 
-  package { "uwsgi-${name}":
+  package { "uwsgi-plugin-${name}":
     ensure => $ensure,
   }
 }
