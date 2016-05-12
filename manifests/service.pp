@@ -10,5 +10,6 @@ class uwsgi::service {
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
+    restart    => 'service uwsgi reload',
   }
 }
