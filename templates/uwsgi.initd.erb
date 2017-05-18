@@ -24,7 +24,7 @@ lockfile=/var/lock/subsys/uwsgi
 
 start () {
   echo -n "Starting $NAME $DESC: "
-  daemon LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONPATH=$PYTHONPATH $PROG $DAEMON_OPTS
+  daemon $PROG $DAEMON_OPTS
   retval=$?
   echo
   [ $retval -eq 0 ] && touch $lockfile
