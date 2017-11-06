@@ -1,6 +1,6 @@
-"/var/log/uwsgi.log"
-"/var/log/uwsgi/*.log"
-"/var/log/uwsgi/*/*.log" {
+"/export/log/uwsgi.log"
+"/export/log/uwsgi/*.log"
+"/export/log/uwsgi/*/*.log" {
   copytruncate
   daily
   rotate 5
