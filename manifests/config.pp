@@ -12,7 +12,7 @@ class uwsgi::config {
     source  => $uwsgi::manage_file_source,
   }
   file { '/etc/sysconfig/uwsgi':
-    ensure  => present,
+    ensure  => $uwsgi::sysconfig_uwsgi,
     owner   => root,
     group   => root,
     mode    => '0644',

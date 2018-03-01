@@ -19,6 +19,14 @@ class uwsgi::params {
     'RedHat', 'Amazon': {
       $package_name = 'uwsgi'
       $service_name = 'uwsgi'
+      case $::lsbmajdistrelease {
+        6: {
+          $sysconfig_uwsgi = 'present'
+        }
+        7: {
+          $sysconfig_uwsgi = 'absent'
+        }
+      }
     }
     default: {
       fail("${::operatingsystem} not supported")
