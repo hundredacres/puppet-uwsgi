@@ -10,6 +10,7 @@ class uwsgi::params {
   $ini_template = 'uwsgi/uwsgi.sysconfig.erb'
   $init_source = undef
   $init_template = 'uwsgi/uwsgi.initd.erb'
+  $logrotate_source = 'puppet:///modules/uwsgi/uwsgi.logrotate'
 
   case $::osfamily {
     'Debian': {
