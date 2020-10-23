@@ -28,6 +28,7 @@ class uwsgi (
   $service_enable      = $::uwsgi::params::service_enable,
   $manage_service_file = $::uwsgi::params::manage_service_file,
   $file_ensure         = $::uwsgi::params::file_ensure,
+  $logrotate_source   = $::uwsgi::params::logrotate_source,
 ) inherits ::uwsgi::params {
 
   # validate parameters here

@@ -20,6 +20,7 @@ class uwsgi::params {
   $service_ensure      = true
   $service_enable      = true
   $manage_service_file = true
+  $logrotate_source = 'puppet:///modules/uwsgi/uwsgi.logrotate'
 
   # remove config files if package is purged
   $file_ensure = $package_ensure ? {

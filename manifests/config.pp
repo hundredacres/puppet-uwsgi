@@ -24,7 +24,7 @@ class uwsgi::config {
     owner  => root,
     group  => root,
     mode   => '0644',
-    source => 'puppet:///modules/uwsgi/uwsgi.logrotate',
+    source => $uwsgi::logrotate_source,
   }
   file { '/var/log/uwsgi.log':
     ensure => present,
