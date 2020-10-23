@@ -4,31 +4,23 @@
 #
 class uwsgi::config {
   file { '/etc/uwsgi.ini':
-    ensure  => present,
+    ensure  => $::uwsgi::file_ensure,
     owner   => root,
     group   => root,
     mode    => '0644',
-    content => $uwsgi::manage_file_content,
-    source  => $uwsgi::manage_file_source,
+    content => $::uwsgi::manage_file_content,
+    source  => $::uwsgi::manage_file_source,
   }
   file { '/etc/sysconfig/uwsgi':
-    ensure  => $uwsgi::sysconfig_uwsgi,
+    ensure  => $::uwsgi::sysconfig_uwsgi,
     owner   => root,
     group   => root,
     mode    => '0644',
-    content => $uwsgi::manage_ini_content,
-    source  => $uwsgi::manage_ini_source,
-  }
-  file { '/etc/init.d/uwsgi':
-    ensure  => present,
-    owner   => root,
-    group   => root,
-    mode    => '0755',
-    content => $uwsgi::manage_init_content,
-    source  => $uwsgi::manage_init_source,
+    content => $::uwsgi::manage_ini_content,
+    source  => $::uwsgi::manage_ini_source,
   }
   file { '/etc/logrotate.d/uwsgi':
-    ensure => present,
+    ensure  => $::uwsgi::sysconfig_uwsgi,
     owner  => root,
     group  => root,
     mode   => '0644',
