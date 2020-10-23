@@ -20,7 +20,7 @@ class uwsgi::service {
     mode    => '0755',
     content => $::uwsgi::manage_service_content,
     source  => $::uwsgi::manage_service_source,
-    require => $::uwsgi::package_name,
+    require => Package[$::uwsgi::package_name],
   }
   if $service_provider == 'systemd' {
     exec { 'uwsgi-reload-systemd':
