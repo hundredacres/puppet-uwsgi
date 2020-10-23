@@ -9,9 +9,8 @@ class uwsgi::params {
   $ini_source          = undef
   $ini_template        = 'uwsgi/uwsgi.sysconfig.erb'
   $service_source      = undef
-  $service_template    = 'uwsgi/uwsgi.initd.erb'
   $service_template = $::service_provider ? {
-    redhat  => 'uwsgi/uwsgi.init.erb',
+    redhat  => 'uwsgi/uwsgi.initd.erb',
     upstart => 'uwsgi/uwsgi.upstart.conf.erb',
     systemd => 'uwsgi/uwsgi.systemd.erb',
     default => 'uwsgi/uwsgi.upstart.conf.erb',
